@@ -6,32 +6,20 @@
 
 The Liskov Substitution Principle (LSP), introduced by Barbara Liskov in 1987, is a fundamental principle in object-oriented design that extends the Open/Closed principle. It states that objects of a superclass should be replaceable with objects of its subclasses without affecting the correctness of the program. In other words, derived classes must be completely substitutable for their base classes.
 
-### Visual Representation of LSP
+### Visual Representation of ISP
 
 ```mermaid
 graph TD
-    subgraph "LSP Violation"
     A[Client] --> B[Bird]
     B --> C[Penguin]
-    D[fly()]
-    style A fill:#3f023f,stroke:#333
-    style B fill:#290249,stroke:#333
-    style C fill:#5b0101,stroke:#333
-    style D fill:#394101,stroke:#333
-    end
-
-    subgraph "LSP Compliant"
-    E[Client] --> F[FlyingBird]
-    E --> G[NonFlyingBird]
+    B --> D[fly method]
+    
+    E[Client] --> F[IFlyable]
+    E --> G[INonFlyable]
     H[Sparrow] --> F
     I[Penguin] --> G
-    style E fill:#3f023f,stroke:#333
-    style F fill:#290249,stroke:#333
-    style G fill:#290249,stroke:#333
-    style H fill:#014201,stroke:#333
-    style I fill:#014201,stroke:#333
-    end
 ```
+
 
 ## Key Benefits
 
