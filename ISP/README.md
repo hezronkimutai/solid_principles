@@ -69,6 +69,8 @@ graph LR
 
 ### Before ISP (Violation)
 
+In this example, we have a violation of the Interface Segregation Principle. The `Worker` interface forces all implementing classes to provide implementations for all methods, even if they don't need them. The `Robot` class is forced to implement `eat()` and `sleep()` methods that it doesn't use, resulting in empty implementations. This creates unnecessary coupling and potential maintenance issues.
+
 ```java
 interface Worker {
     void work();
@@ -106,6 +108,8 @@ class Robot implements Worker {
 ```
 
 ### After ISP (Compliant)
+
+After applying ISP, we split the large `Worker` interface into three smaller, focused interfaces: `Workable`, `Eatable`, and `Sleepable`. Now classes can implement only the interfaces they need. The `Human` class implements all three interfaces since it needs all behaviors, while the `Robot` class only implements `Workable` since it only needs to work. This design is more flexible, maintainable, and eliminates the need for empty method implementations.
 
 ```java
 interface Workable {
