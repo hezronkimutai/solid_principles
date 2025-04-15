@@ -62,6 +62,8 @@ graph LR
 
 ### Before DIP (Violation)
 
+This code violates DIP by having the high-level PaymentProcessor class depend directly on the low-level StripePaymentGateway class. The direct instantiation of StripePaymentGateway creates tight coupling, making it impossible to change payment providers without modifying the PaymentProcessor class. This also makes the code difficult to test since we cannot easily substitute a mock payment gateway.
+
 ```java
 class PaymentProcessor {
     private StripePaymentGateway paymentGateway;
@@ -83,6 +85,8 @@ class StripePaymentGateway {
 ```
 
 ### After DIP (Compliant)
+
+The refactored code follows DIP by introducing an IPaymentGateway interface that both high-level and low-level modules depend on. The PaymentProcessor now depends on the abstraction rather than a concrete implementation, and payment gateways are injected through the constructor. This makes the code more flexible (easy to add new payment gateways), testable (can use mock implementations), and maintainable (changes to one payment gateway don't affect others).
 
 ```java
 interface IPaymentGateway {

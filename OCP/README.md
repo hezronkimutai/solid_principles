@@ -69,6 +69,8 @@ graph LR
 
 ### Before OCP (Violation)
 
+This code violates OCP by using conditional statements to handle different operations. Adding a new operation requires modifying the existing Calculator class, which risks introducing bugs in already working code. The class must be changed and recompiled every time a new operation needs to be added.
+
 ```java
 class Calculator {
     public double calculate(String operation, double a, double b) {
@@ -87,6 +89,8 @@ class Calculator {
 ```
 
 ### After OCP (Compliant)
+
+The refactored code follows OCP by defining an Operation interface that allows new operations to be added without modifying existing code. The Calculator class is now closed for modification (it doesn't need to change when adding new operations) but open for extension (new operations can be added by implementing the Operation interface). This makes the system more flexible and reduces the risk of breaking existing functionality.
 
 ```java
 interface Operation {

@@ -71,6 +71,8 @@ graph LR
 
 ### Before SRP (Violation)
 
+The following code violates SRP by combining multiple responsibilities in a single class: user creation, email notification, and logging. This creates tight coupling between different concerns and makes the code harder to maintain, test, and modify. If any of these responsibilities need to change (e.g., switching email providers or changing the logging format), the entire class would need to be modified.
+
 ```java
 class UserService {
     private Database db;
@@ -102,6 +104,14 @@ class UserService {
 ```
 
 ### After SRP (Compliant)
+
+The refactored code follows SRP by separating each responsibility into its own class. Each class has a single reason to change:
+- UserService: Handles user creation orchestration
+- UserRepository: Manages user data persistence
+- NotificationService: Handles email notifications
+- LoggingService: Manages logging operations
+
+This separation makes the code more maintainable, testable, and allows each component to evolve independently.
 
 ```java
 class UserService {

@@ -69,6 +69,8 @@ graph LR
 
 ### Before LSP (Violation)
 
+This code violates LSP by having Square inherit from Rectangle but breaking the Rectangle's behavioral contract. When a Square overrides setWidth and setHeight, it changes both dimensions to maintain the square property. This means that code that works with Rectangles (like clientCode) will fail when given a Square, violating the principle that derived classes should be substitutable for their base classes.
+
 ```java
 class Rectangle {
     protected int width;
@@ -110,6 +112,8 @@ void clientCode(Rectangle rectangle) {
 ```
 
 ### After LSP (Compliant)
+
+The refactored code follows LSP by using a common Shape interface and implementing Rectangle and Square as separate classes, rather than trying to force an inheritance relationship. Each class maintains its own properties and correctly implements the getArea() contract. This ensures that any code working with Shape objects will work correctly regardless of whether it's dealing with a Rectangle or Square.
 
 ```java
 interface Shape {
