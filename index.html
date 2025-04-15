@@ -6,23 +6,22 @@
     <title>SOLID Principles</title>
     <!-- Load libraries -->
     <script src="https://cdn.jsdelivr.net/npm/marked@9.1.6/marked.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js" onload="initializeMermaid()"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
     <script>
-        // Initialize Mermaid with configuration
-        function initializeMermaid() {
-            mermaid.initialize({
-                startOnLoad: true,
-                theme: 'default',
-                securityLevel: 'loose',
-                themeVariables: {
-                    primaryColor: '#007bff',
-                    primaryTextColor: '#fff',
-                    primaryBorderColor: '#007bff',
-                    lineColor: '#2c3e50',
-                    secondaryColor: '#6c757d'
-                }
-            });
-        }
+        // Initialize everything when the document is ready
+        // Initialize mermaid configuration
+        mermaid.initialize({
+            startOnLoad: false,
+            theme: 'default',
+            securityLevel: 'loose',
+            themeVariables: {
+                primaryColor: '#007bff',
+                primaryTextColor: '#fff',
+                primaryBorderColor: '#007bff',
+                lineColor: '#2c3e50',
+                secondaryColor: '#6c757d'
+            }
+        });
 
         // Configure marked to handle code blocks
         marked.use({
@@ -191,8 +190,15 @@
                 const contentDiv = document.getElementById('content');
                 contentDiv.innerHTML = marked.parse(content);
                 
-                // Reset and render mermaid diagrams
-                mermaid.init();
+                // Remove any existing rendered diagrams
+                document.querySelectorAll('.mermaid').forEach(el => {
+                    el.removeAttribute('data-processed');
+                });
+                
+                // Re-render mermaid diagrams
+                mermaid.run({
+                    querySelector: '.mermaid'
+                }).catch(err => console.error('Mermaid rendering error:', err));
             } else {
                 document.getElementById('content').innerHTML = '<p>Loading content...</p>';
             }
