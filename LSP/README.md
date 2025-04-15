@@ -17,7 +17,7 @@ graph TD
     style A fill:#3f023f,stroke:#333
     style B fill:#290249,stroke:#333
     style C fill:#5b0101,stroke:#333
-    style D fill:#fff,stroke:#333
+    style D fill:#394101,stroke:#333
     end
 
     subgraph "LSP Compliant"

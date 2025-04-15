@@ -26,7 +26,7 @@ graph TD
     H[Stripe Strategy] --> F
     I[New Strategy] --> F
     style E fill:#5b0101,stroke:#333
-    style F fill:#fff,stroke:#333
+    style F fill:#394101,stroke:#333
     style G fill:#290249,stroke:#333
     style H fill:#290249,stroke:#333
     style I fill:#290249,stroke:#333
@@ -147,7 +147,7 @@ graph TD
     E[Excel Plugin] --> B
     F[New Plugin] --> B
     style A fill:#3f023f,stroke:#333
-    style B fill:#fff,stroke:#333
+    style B fill:#394101,stroke:#333
     style C fill:#290249,stroke:#333
     style D fill:#290249,stroke:#333
     style E fill:#290249,stroke:#333

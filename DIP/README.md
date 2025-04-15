@@ -21,7 +21,7 @@ graph TD
     C[High-Level Module] --> D[Abstract Interface]
     E[Low-Level Module] --> D
     style C fill:#3f023f,stroke:#333
-    style D fill:#fff,stroke:#333
+    style D fill:#394101,stroke:#333
     style E fill:#290249,stroke:#333
     end
 ```
@@ -124,7 +124,7 @@ graph TB
     D[PayPalGateway] --> B
     E[BitcoinGateway] --> B
     style A fill:#5b0101,stroke:#333
-    style B fill:#fff,stroke:#333
+    style B fill:#394101,stroke:#333
     style C fill:#00124e,stroke:#333
     style D fill:#00124e,stroke:#333
     style E fill:#00124e,stroke:#333
