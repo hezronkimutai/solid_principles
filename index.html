@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SOLID Principles</title>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <style>
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            line-height: 1.6;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem;
+            color: #333;
+            background: #f8f9fa;
+        }
+        nav {
+            margin-bottom: 2rem;
+            padding: 1rem;
+            background: white;
+            border-radius: 8px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            justify-content: center;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        nav button {
+            padding: 0.75rem 1.25rem;
+            border: none;
+            background: #007bff;
+            color: white;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.2s;
+        }
+        nav button:hover {
+            background: #0056b3;
+        }
+        nav button.active {
+            background: #004085;
+        }
+        #content {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        pre {
+            background: #f8f9fa;
+            padding: 1rem;
+            border-radius: 4px;
+            overflow-x: auto;
+        }
+        code {
+            font-family: 'Consolas', monospace;
+        }
+        h1, h2, h3 {
+            color: #2c3e50;
+            margin-top: 2rem;
+        }
+        h1 {
+            border-bottom: 2px solid #e9ecef;
+            padding-bottom: 0.5rem;
+        }
+        .mermaid {
+            background: white;
+            padding: 1rem;
+            border-radius: 4px;
+            margin: 1rem 0;
+            text-align: center;
+        }
+        blockquote {
+            border-left: 4px solid #007bff;
+            margin: 1.5rem 0;
+            padding: 0.5rem 1rem;
+            background: #f8f9fa;
+            font-style: italic;
+        }
+        ul, ol {
+            padding-left: 2rem;
+        }
+        p {
+            margin: 1rem 0;
+        }
+        strong {
+            color: #2c3e50;
+        }
+        /* Hide Mermaid error messages */
+        .mermaid:not(:has(svg)) {
+            display: none;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+    <nav id="nav">
+        <button onclick="displayPrinciple('srp')" data-principle="srp">Single Responsibility</button>
+        <button onclick="displayPrinciple('ocp')" data-principle="ocp">Open-Closed</button>
+        <button onclick="displayPrinciple('lsp')" data-principle="lsp">Liskov Substitution</button>
+        <button onclick="displayPrinciple('isp')" data-principle="isp">Interface Segregation</button>
+        <button onclick="displayPrinciple('dip')" data-principle="dip">Dependency Inversion</button>
+    </nav>
+    <div id="content">
+        <p>Select a SOLID principle from the navigation above to view its documentation.</p>
+    </div>
+
+    <script>
+        // Initialize mermaid for diagram rendering
+        mermaid.initialize({ 
+            startOnLoad: true,
+            theme: 'default',
+            themeVariables: {
+                primaryColor: '#007bff',
+                primaryTextColor: '#fff',
+                primaryBorderColor: '#007bff',
+                lineColor: '#2c3e50',
+                secondaryColor: '#6c757d'
+            }
+        });
+
+        // Get markdown content from files
+        const principles = {};
+        
+        async function loadPrinciples() {
+            try {
+                const responses = await Promise.all([
+                    fetch('SRP/README.md'),
+                    fetch('OCP/README.md'),
+                    fetch('LSP/README.md'),
+                    fetch('ISP/README.md'),
+                    fetch('DIP/README.md')
+                ]);
+                
+                const [srp, ocp, lsp, isp, dip] = await Promise.all(
+                    responses.map(response => response.text())
+                );
+                
+                principles.srp = srp;
+                principles.ocp = ocp;
+                principles.lsp = lsp;
+                principles.isp = isp;
+                principles.dip = dip;
+                
+                // Display SRP by default after loading
+                displayPrinciple('srp');
+            } catch (error) {
+                console.error('Error loading principles:', error);
+                document.getElementById('content').innerHTML = `
+                    <h1>Error Loading Content</h1>
+                    <p>Unable to load the documentation. Please try:</p>
+                    <ul>
+                        <li>Running the page through a local server (e.g. Live Server in VS Code)</li>
+                        <li>Checking if all README.md files are present in their respective folders</li>
+                    </ul>
+                `;
+            }
+        }
+
+        function displayPrinciple(principle) {
+            // Update active button
+            document.querySelectorAll('nav button').forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.dataset.principle === principle) {
+                    btn.classList.add('active');
+                }
+            });
+
+            // Display content
+            const content = principles[principle];
+            if (content) {
+                document.getElementById('content').innerHTML = marked.parse(content);
+                
+                // Re-initialize mermaid to render new diagrams
+                setTimeout(() => {
+                    mermaid.init(undefined, document.querySelectorAll('.mermaid'));
+                }, 0);
+            } else {
+                document.getElementById('content').innerHTML = '<p>Loading content...</p>';
+            }
+        }
+
+        // Load principles when the page loads
+        loadPrinciples();
+    </script>
+</body>
+</html>
