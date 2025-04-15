@@ -4,7 +4,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SOLID Principles</title>
-    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <!-- Load libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/marked@9.1.6/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js" onload="initializeMermaid()"></script>
+    <script>
+        // Initialize Mermaid with configuration
+        function initializeMermaid() {
+            mermaid.initialize({
+                startOnLoad: true,
+                theme: 'default',
+                securityLevel: 'loose',
+                themeVariables: {
+                    primaryColor: '#007bff',
+                    primaryTextColor: '#fff',
+                    primaryBorderColor: '#007bff',
+                    lineColor: '#2c3e50',
+                    secondaryColor: '#6c757d'
+                }
+            });
+        }
+
+        // Configure marked to handle code blocks
+        marked.use({
+            renderer: {
+                code(code, language) {
+                    if (language === 'mermaid') {
+                        return `<div class="mermaid">${code}</div>`;
+                    }
+                    return `<pre><code class="language-${language}">${code}</code></pre>`;
+                }
+            }
+        });
+    </script>
     <style>
         body {
             font-family: system-ui, -apple-system, sans-serif;
@@ -93,7 +124,6 @@
             display: none;
         }
     </style>
-    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
 </head>
 <body>
     <nav id="nav">
@@ -108,19 +138,6 @@
     </div>
 
     <script>
-        // Initialize mermaid for diagram rendering
-        mermaid.initialize({ 
-            startOnLoad: true,
-            theme: 'default',
-            themeVariables: {
-                primaryColor: '#007bff',
-                primaryTextColor: '#fff',
-                primaryBorderColor: '#007bff',
-                lineColor: '#2c3e50',
-                secondaryColor: '#6c757d'
-            }
-        });
-
         // Get markdown content from files
         const principles = {};
         
@@ -171,12 +188,11 @@
             // Display content
             const content = principles[principle];
             if (content) {
-                document.getElementById('content').innerHTML = marked.parse(content);
+                const contentDiv = document.getElementById('content');
+                contentDiv.innerHTML = marked.parse(content);
                 
-                // Re-initialize mermaid to render new diagrams
-                setTimeout(() => {
-                    mermaid.init(undefined, document.querySelectorAll('.mermaid'));
-                }, 0);
+                // Reset and render mermaid diagrams
+                mermaid.init();
             } else {
                 document.getElementById('content').innerHTML = '<p>Loading content...</p>';
             }
