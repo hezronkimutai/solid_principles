@@ -13,16 +13,16 @@ The Dependency Inversion Principle (DIP), introduced by Robert C. Martin as part
 graph TD
     subgraph "Without DIP"
     A[High-Level Module] --> B[Low-Level Module]
-    style A fill:#f9f,stroke:#333
-    style B fill:#bbf,stroke:#333
+    style A fill:#3f023f,stroke:#333
+    style B fill:#290249,stroke:#333
     end
 
     subgraph "With DIP"
     C[High-Level Module] --> D[Abstract Interface]
     E[Low-Level Module] --> D
-    style C fill:#f9f,stroke:#333
+    style C fill:#3f023f,stroke:#333
     style D fill:#fff,stroke:#333
-    style E fill:#bbf,stroke:#333
+    style E fill:#290249,stroke:#333
     end
 ```
 
@@ -51,11 +51,11 @@ graph LR
     B --> C[Implement Interfaces]
     C --> D[Use Dependency Injection]
     D --> E[Test Implementation]
-    style A fill:#f96,stroke:#333
-    style B fill:#9cf,stroke:#333
-    style C fill:#9f9,stroke:#333
-    style D fill:#f9f,stroke:#333
-    style E fill:#ff9,stroke:#333
+    style A fill:#5b0101,stroke:#333
+    style B fill:#00124e,stroke:#333
+    style C fill:#014201,stroke:#333
+    style D fill:#3f023f,stroke:#333
+    style E fill:#434303,stroke:#333
 ```
 
 ## Practical Example
@@ -123,11 +123,11 @@ graph TB
     C[StripeGateway] --> B
     D[PayPalGateway] --> B
     E[BitcoinGateway] --> B
-    style A fill:#f96,stroke:#333
+    style A fill:#5b0101,stroke:#333
     style B fill:#fff,stroke:#333
-    style C fill:#9cf,stroke:#333
-    style D fill:#9cf,stroke:#333
-    style E fill:#9cf,stroke:#333
+    style C fill:#00124e,stroke:#333
+    style D fill:#00124e,stroke:#333
+    style E fill:#00124e,stroke:#333
     end
 ```
 

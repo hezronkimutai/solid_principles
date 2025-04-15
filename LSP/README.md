@@ -14,9 +14,9 @@ graph TD
     A[Client] --> B[Bird]
     B --> C[Penguin]
     D[fly()]
-    style A fill:#f9f,stroke:#333
-    style B fill:#bbf,stroke:#333
-    style C fill:#f96,stroke:#333
+    style A fill:#3f023f,stroke:#333
+    style B fill:#290249,stroke:#333
+    style C fill:#5b0101,stroke:#333
     style D fill:#fff,stroke:#333
     end
 
@@ -25,11 +25,11 @@ graph TD
     E --> G[NonFlyingBird]
     H[Sparrow] --> F
     I[Penguin] --> G
-    style E fill:#f9f,stroke:#333
-    style F fill:#bbf,stroke:#333
-    style G fill:#bbf,stroke:#333
-    style H fill:#9f9,stroke:#333
-    style I fill:#9f9,stroke:#333
+    style E fill:#3f023f,stroke:#333
+    style F fill:#290249,stroke:#333
+    style G fill:#290249,stroke:#333
+    style H fill:#014201,stroke:#333
+    style I fill:#014201,stroke:#333
     end
 ```
 
@@ -58,11 +58,11 @@ graph LR
     B --> C[Implement Subclasses]
     C --> D[Verify Substitutability]
     D --> E[Test Polymorphic Behavior]
-    style A fill:#f96,stroke:#333
-    style B fill:#9cf,stroke:#333
-    style C fill:#9f9,stroke:#333
-    style D fill:#f9f,stroke:#333
-    style E fill:#ff9,stroke:#333
+    style A fill:#5b0101,stroke:#333
+    style B fill:#00124e,stroke:#333
+    style C fill:#014201,stroke:#333
+    style D fill:#3f023f,stroke:#333
+    style E fill:#434303,stroke:#333
 ```
 
 ## Practical Example
@@ -193,12 +193,12 @@ graph TD
     D[MemoryStorage] --> C
     E[FileStorage] --> C
     F[NetworkStorage] --> C
-    style A fill:#f9f,stroke:#333
-    style B fill:#bbf,stroke:#333
-    style C fill:#bbf,stroke:#333
-    style D fill:#9f9,stroke:#333
-    style E fill:#9f9,stroke:#333
-    style F fill:#9f9,stroke:#333
+    style A fill:#3f023f,stroke:#333
+    style B fill:#290249,stroke:#333
+    style C fill:#290249,stroke:#333
+    style D fill:#014201,stroke:#333
+    style E fill:#014201,stroke:#333
+    style F fill:#014201,stroke:#333
     end
 ```
 

@@ -14,10 +14,10 @@ graph TD
     A[Payment Processor] --> B[if PayPal]
     A --> C[if Stripe]
     A --> D[if Other]
-    style A fill:#f96,stroke:#333
-    style B fill:#bbf,stroke:#333
-    style C fill:#bbf,stroke:#333
-    style D fill:#bbf,stroke:#333
+    style A fill:#5b0101,stroke:#333
+    style B fill:#290249,stroke:#333
+    style C fill:#290249,stroke:#333
+    style D fill:#290249,stroke:#333
     end
 
     subgraph "With OCP"
@@ -25,11 +25,11 @@ graph TD
     G[PayPal Strategy] --> F
     H[Stripe Strategy] --> F
     I[New Strategy] --> F
-    style E fill:#f96,stroke:#333
+    style E fill:#5b0101,stroke:#333
     style F fill:#fff,stroke:#333
-    style G fill:#bbf,stroke:#333
-    style H fill:#bbf,stroke:#333
-    style I fill:#bbf,stroke:#333
+    style G fill:#290249,stroke:#333
+    style H fill:#290249,stroke:#333
+    style I fill:#290249,stroke:#333
     end
 ```
 
@@ -58,11 +58,11 @@ graph LR
     B --> C[Implement Base Class]
     C --> D[Add Extensions]
     D --> E[Use Polymorphism]
-    style A fill:#f96,stroke:#333
-    style B fill:#9cf,stroke:#333
-    style C fill:#9f9,stroke:#333
-    style D fill:#f9f,stroke:#333
-    style E fill:#ff9,stroke:#333
+    style A fill:#5b0101,stroke:#333
+    style B fill:#00124e,stroke:#333
+    style C fill:#014201,stroke:#333
+    style D fill:#3f023f,stroke:#333
+    style E fill:#434303,stroke:#333
 ```
 
 ## Practical Example
@@ -146,12 +146,12 @@ graph TD
     D[Word Plugin] --> B
     E[Excel Plugin] --> B
     F[New Plugin] --> B
-    style A fill:#f9f,stroke:#333
+    style A fill:#3f023f,stroke:#333
     style B fill:#fff,stroke:#333
-    style C fill:#bbf,stroke:#333
-    style D fill:#bbf,stroke:#333
-    style E fill:#bbf,stroke:#333
-    style F fill:#bbf,stroke:#333
+    style C fill:#290249,stroke:#333
+    style D fill:#290249,stroke:#333
+    style E fill:#290249,stroke:#333
+    style F fill:#290249,stroke:#333
     end
 ```
 

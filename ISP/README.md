@@ -14,22 +14,22 @@ graph TD
     A[Client A] --> B[Large Interface]
     C[Client B] --> B
     D[Client C] --> B
-    style A fill:#f9f,stroke:#333
-    style B fill:#bbf,stroke:#333
-    style C fill:#f9f,stroke:#333
-    style D fill:#f9f,stroke:#333
+    style A fill:#3f023f,stroke:#333
+    style B fill:#290249,stroke:#333
+    style C fill:#3f023f,stroke:#333
+    style D fill:#3f023f,stroke:#333
     end
 
     subgraph "With ISP"
     E[Client A] --> F[Interface A]
     G[Client B] --> H[Interface B]
     I[Client C] --> J[Interface C]
-    style E fill:#f9f,stroke:#333
-    style F fill:#bbf,stroke:#333
-    style G fill:#f9f,stroke:#333
-    style H fill:#bbf,stroke:#333
-    style I fill:#f9f,stroke:#333
-    style J fill:#bbf,stroke:#333
+    style E fill:#3f023f,stroke:#333
+    style F fill:#290249,stroke:#333
+    style G fill:#3f023f,stroke:#333
+    style H fill:#290249,stroke:#333
+    style I fill:#3f023f,stroke:#333
+    style J fill:#290249,stroke:#333
     end
 ```
 
@@ -58,11 +58,11 @@ graph LR
     B --> C[Split Interfaces]
     C --> D[Refactor Implementations]
     D --> E[Update Clients]
-    style A fill:#f96,stroke:#333
-    style B fill:#9cf,stroke:#333
-    style C fill:#9f9,stroke:#333
-    style D fill:#f9f,stroke:#333
-    style E fill:#ff9,stroke:#333
+    style A fill:#5b0101,stroke:#333
+    style B fill:#00124e,stroke:#333
+    style C fill:#014201,stroke:#333
+    style D fill:#3f023f,stroke:#333
+    style E fill:#434303,stroke:#333
 ```
 
 ## Practical Example

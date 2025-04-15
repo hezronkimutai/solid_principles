@@ -15,11 +15,11 @@ graph TD
     A --> C[Generate Report]
     A --> D[Save to Database]
     A --> E[Send Email]
-    style A fill:#f96,stroke:#333
-    style B fill:#bbf,stroke:#333
-    style C fill:#bbf,stroke:#333
-    style D fill:#bbf,stroke:#333
-    style E fill:#bbf,stroke:#333
+    style A fill:#5b0101,stroke:#333
+    style B fill:#290249,stroke:#333
+    style C fill:#290249,stroke:#333
+    style D fill:#290249,stroke:#333
+    style E fill:#290249,stroke:#333
     end
 
     subgraph "With SRP"
@@ -27,11 +27,11 @@ graph TD
     F --> H[ReportGenerator]
     F --> I[EmployeeRepository]
     F --> J[EmailService]
-    style F fill:#f96,stroke:#333
-    style G fill:#bbf,stroke:#333
-    style H fill:#bbf,stroke:#333
-    style I fill:#bbf,stroke:#333
-    style J fill:#bbf,stroke:#333
+    style F fill:#5b0101,stroke:#333
+    style G fill:#290249,stroke:#333
+    style H fill:#290249,stroke:#333
+    style I fill:#290249,stroke:#333
+    style J fill:#290249,stroke:#333
     end
 ```
 
@@ -60,11 +60,11 @@ graph LR
     B --> C[Create Focused Classes]
     C --> D[Define Interfaces]
     D --> E[Implement Dependencies]
-    style A fill:#f96,stroke:#333
-    style B fill:#9cf,stroke:#333
-    style C fill:#9f9,stroke:#333
-    style D fill:#f9f,stroke:#333
-    style E fill:#ff9,stroke:#333
+    style A fill:#5b0101,stroke:#333
+    style B fill:#00124e,stroke:#333
+    style C fill:#014201,stroke:#333
+    style D fill:#3f023f,stroke:#333
+    style E fill:#434303,stroke:#333
 ```
 
 ## Practical Example
@@ -200,12 +200,12 @@ graph TD
     A --> D[PaymentProcessor]
     A --> E[ShippingService]
     A --> F[NotificationService]
-    style A fill:#f9f,stroke:#333
-    style B fill:#bbf,stroke:#333
-    style C fill:#bbf,stroke:#333
-    style D fill:#bbf,stroke:#333
-    style E fill:#bbf,stroke:#333
-    style F fill:#bbf,stroke:#333
+    style A fill:#3f023f,stroke:#333
+    style B fill:#290249,stroke:#333
+    style C fill:#290249,stroke:#333
+    style D fill:#290249,stroke:#333
+    style E fill:#290249,stroke:#333
+    style F fill:#290249,stroke:#333
     end
 ```
 
