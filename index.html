@@ -157,6 +157,7 @@
 </head>
 <body>
     <nav id="nav">
+        <button onclick="displayPrinciple('home')" data-principle="home">Home</button>
         <button onclick="displayPrinciple('srp')" data-principle="srp">Single Responsibility</button>
         <button onclick="displayPrinciple('ocp')" data-principle="ocp">Open-Closed</button>
         <button onclick="displayPrinciple('lsp')" data-principle="lsp">Liskov Substitution</button>
@@ -174,6 +175,7 @@
         async function loadPrinciples() {
             try {
                 const responses = await Promise.all([
+                    fetch('README.md'),
                     fetch('SRP/README.md'),
                     fetch('OCP/README.md'),
                     fetch('LSP/README.md'),
@@ -181,18 +183,19 @@
                     fetch('DIP/README.md')
                 ]);
                 
-                const [srp, ocp, lsp, isp, dip] = await Promise.all(
+                const [home, srp, ocp, lsp, isp, dip] = await Promise.all(
                     responses.map(response => response.text())
                 );
                 
+                principles.home = home;
                 principles.srp = srp;
                 principles.ocp = ocp;
                 principles.lsp = lsp;
                 principles.isp = isp;
                 principles.dip = dip;
                 
-                // Display SRP by default after loading
-                displayPrinciple('srp');
+                // Display home by default after loading
+                displayPrinciple('home');
             } catch (error) {
                 console.error('Error loading principles:', error);
                 document.getElementById('content').innerHTML = `
