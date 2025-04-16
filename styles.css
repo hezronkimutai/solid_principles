@@ -113,6 +113,16 @@ a:hover {
     box-shadow: 0 1px 3px rgba(0,0,0,0.3);
 }
 
+.x-icon {
+    font-family: Arial, sans-serif !important;
+    font-weight: bold !important;
+    font-style: normal !important;
+    font-size: 1.4rem !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
 .social-links a {
     color: #fff;
     font-size: 1.8rem;
