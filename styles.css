@@ -98,3 +98,39 @@ a:hover {
 .mermaid:not(:has(svg)) {
     display: none;
 }
+
+.social-links {
+    position: fixed;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    background: rgba(135, 35, 65, 0.15);
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+}
+
+.social-links a {
+    color: #fff;
+    font-size: 1.8rem;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    background: rgba(190, 49, 68, 0.2);
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+.social-links a:hover {
+    color: #E17564;
+    transform: translateY(-2px);
+    text-decoration: none;
+    background: rgba(190, 49, 68, 0.4);
+    box-shadow: 0 0 15px rgba(225, 117, 100, 0.3);
+}
