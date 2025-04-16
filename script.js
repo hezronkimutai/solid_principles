@@ -37,8 +37,36 @@ marked.use({
             if (language === 'mermaid') {
                 return `<div class="mermaid">${code}</div>`;
             }
-            return `<pre><code class="language-${language}">${code}</code></pre>`;
+            return `<div class="code-container">
+                <button class="copy-button" aria-label="Copy code">
+                    Copy
+                </button>
+                <pre><code class="language-${language}">${code}</code></pre>
+            </div>`;
         }
+    }
+});
+
+// Add copy functionality to code blocks
+document.addEventListener('click', (e) => {
+    if (e.target.classList.contains('copy-button')) {
+        const button = e.target;
+        const code = button.nextElementSibling.querySelector('code').textContent;
+        
+        navigator.clipboard.writeText(code).then(() => {
+            button.textContent = 'Copied!';
+            button.classList.add('copied');
+            
+            setTimeout(() => {
+                button.textContent = 'Copy';
+                button.classList.remove('copied');
+            }, 2000);
+        }).catch(() => {
+            button.textContent = 'Failed!';
+            setTimeout(() => {
+                button.textContent = 'Copy';
+            }, 2000);
+        });
     }
 });
 
