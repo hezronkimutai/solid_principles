@@ -30,18 +30,27 @@ mermaid.initialize({
     }
 });
 
-// Configure marked to handle code blocks
+// Configure marked to handle code blocks with Prism.js syntax highlighting
 marked.use({
     renderer: {
         code(code, language) {
             if (language === 'mermaid') {
                 return `<div class="mermaid">${code}</div>`;
             }
+            
+            // Use Prism.js for syntax highlighting
+            const validLanguage = Prism.languages[language] ? language : 'plaintext';
+            const highlightedCode = Prism.highlight(
+                code,
+                Prism.languages[validLanguage],
+                validLanguage
+            );
+            
             return `<div class="code-container">
                 <button class="copy-button" aria-label="Copy code">
                     Copy
                 </button>
-                <pre><code class="language-${language}">${code}</code></pre>
+                <pre><code class="language-${validLanguage}">${highlightedCode}</code></pre>
             </div>`;
         }
     }

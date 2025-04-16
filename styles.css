@@ -182,3 +182,77 @@ a:hover {
     background: rgba(190, 49, 68, 0.4);
     box-shadow: 0 0 15px rgba(225, 117, 100, 0.3);
 }
+
+/* Prism.js syntax highlighting customization */
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+    background: rgba(9, 18, 44, 0.8);
+    margin: 0;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+    color: #666;
+}
+
+.token.property,
+.token.tag,
+.token.constant,
+.token.symbol,
+.token.deleted {
+    color: #E17564;
+}
+
+.token.boolean,
+.token.number {
+    color: #BE3144;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+    color: #7EC699;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {
+    color: #67CDCC;
+}
+
+.token.atrule,
+.token.attr-value,
+.token.keyword {
+    color: #CC99CD;
+}
+
+.token.function,
+.token.class-name {
+    color: #E9C062;
+}
+
+.token.regex,
+.token.important,
+.token.variable {
+    color: #67CDCC;
+}
+
+/* Ensure code blocks maintain their styles */
+pre[class*="language-"] {
+    padding: 1rem;
+    border-radius: 4px;
+    border: 1px solid #BE3144;
+    max-height: 70vh;
+}
+
+code[class*="language-"] {
+    font-family: 'Consolas', monospace;
+    text-shadow: none;
+}
