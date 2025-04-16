@@ -1,3 +1,7 @@
+<a href="https://hezronkimutai.github.io/solid_principles/" target="_blank">
+  <img src="https://img.shields.io/website-up-down-green-red/http/shields.io.svg" alt="Website shields.io">
+</a>
+
 # SOLID Principles in Software Design
 
 Welcome to a professional reference guide on the SOLID principles — the cornerstone of writing scalable, maintainable, and robust object-oriented software systems.
